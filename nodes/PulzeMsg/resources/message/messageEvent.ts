@@ -1,0 +1,93 @@
+import type { INodeProperties } from 'n8n-workflow';
+
+export const messageEventDescription: INodeProperties[] = [
+  {
+    displayName: "Number",
+    name: "number",
+    type: "string",
+    required: true,
+    default: '',
+    placeholder: "5511999999999",
+    displayOptions: { show: { operation: ['messageEvent'], resource: ['message'] } },
+    description: "Recipient: phone number with country and area code, or a full JID — for a GROUP, the JID ends in @g.us",
+    routing: { send: { type: "body", property: "number" } },
+  },
+  {
+    displayName: "Name",
+    name: "name",
+    type: "string",
+    required: true,
+    default: '',
+    displayOptions: { show: { operation: ['messageEvent'], resource: ['message'] } },
+    description: "Event title",
+    routing: { send: { type: "body", property: "name" } },
+  },
+  {
+    displayName: "Start Time",
+    name: "startTime",
+    type: "number",
+    required: true,
+    default: 0,
+    displayOptions: { show: { operation: ['messageEvent'], resource: ['message'] } },
+    description: "Start time, in Unix seconds (seconds since 1970 — not milliseconds)",
+    routing: { send: { type: "body", property: "startTime" } },
+  },
+  {
+    displayName: 'Options',
+    name: 'options',
+    type: 'collection',
+    placeholder: 'Add Option',
+    default: {},
+    displayOptions: { show: { operation: ['messageEvent'], resource: ['message'] } },
+    options: [
+        {
+          displayName: "Description",
+          name: "description",
+          type: "string",
+          default: '',
+          description: "Event description/details",
+          routing: { send: { type: "body", property: "description" } },
+        },
+        {
+          displayName: "End Time",
+          name: "endTime",
+          type: "number",
+          default: 0,
+          description: "End time, in Unix seconds. Omitted (0) means no end time defined.",
+          routing: { send: { type: "body", property: "endTime" } },
+        },
+        {
+          displayName: "Join Link",
+          name: "joinLink",
+          type: "string",
+          default: '',
+          description: "Meeting link (Meet, Zoom, etc.), shown as a join button",
+          routing: { send: { type: "body", property: "joinLink" } },
+        },
+        {
+          displayName: "Latitude",
+          name: "latitude",
+          type: "number",
+          default: 0,
+          description: "In-person event location, decimal degrees. Only shown on the card if Latitude, Longitude or Location Name is set.",
+          routing: { send: { type: "body", property: "latitude" } },
+        },
+        {
+          displayName: "Location Name",
+          name: "locationName",
+          type: "string",
+          default: '',
+          description: "Name of the in-person location (e.g. \"Pulze Office\")",
+          routing: { send: { type: "body", property: "locationName" } },
+        },
+        {
+          displayName: "Longitude",
+          name: "longitude",
+          type: "number",
+          default: 0,
+          description: "Decimal degrees",
+          routing: { send: { type: "body", property: "longitude" } },
+        }
+    ],
+  }
+];

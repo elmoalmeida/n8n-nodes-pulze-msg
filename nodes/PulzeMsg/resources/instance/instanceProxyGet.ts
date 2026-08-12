@@ -1,0 +1,13 @@
+import type { INodeProperties } from 'n8n-workflow';
+
+export const instanceProxyGetDescription: INodeProperties[] = [
+  {
+    displayName: 'Instance',
+    name: 'instance',
+    type: 'string',
+    required: true,
+    default: '',
+    displayOptions: { show: { operation: ['instanceProxyGet'], resource: ['instance'] } },
+    description: "Name of the instance",
+  }
+];
