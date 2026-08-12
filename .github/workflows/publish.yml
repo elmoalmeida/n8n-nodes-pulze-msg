@@ -81,6 +81,14 @@ jobs:
           node-version: 'lts/*'
           cache: 'npm'
 
+      # Trusted Publishing exchanges the GitHub OIDC token for a short-lived
+      # npm credential, and that exchange only exists in npm >= 11.5.1 - newer
+      # than the npm bundled with some Node LTS releases, which is what
+      # `node-version: lts/*` gives us. Without this step the publish fails
+      # authentication even though the trusted publisher is configured.
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: 'npm ci'
 
