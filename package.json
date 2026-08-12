@@ -1,53 +1,54 @@
 {
-	"name": "n8n-nodes-pulze-msg",
-	"version": "0.2.0",
-	"description": "Send and receive WhatsApp messages from n8n via the Pulze API — text, media, interactive buttons, instance management and a signature-verified webhook trigger.",
-	"license": "MIT",
-	"homepage": "https://pulzeapi.botautotik.com",
-	"keywords": [
-		"n8n-community-node-package",
-		"whatsapp",
-		"pulze"
-	],
-	"author": {
-		"name": "Elmo Almeida",
-		"email": "contato@elmodesign.com.br"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/elmoalmeida/n8n-nodes-pulze-msg.git"
-	},
-	"scripts": {
-		"build": "n8n-node build",
-		"build:watch": "tsc --watch",
-		"dev": "n8n-node dev",
-		"lint": "n8n-node lint",
-		"lint:fix": "n8n-node lint --fix",
-		"release": "n8n-node release",
-		"prepublishOnly": "n8n-node prerelease"
-	},
-	"files": [
-		"dist"
-	],
-	"n8n": {
-		"n8nNodesApiVersion": 1,
-		"strict": true,
-		"credentials": [
-			"dist/credentials/PulzeMsgApi.credentials.js"
-		],
-		"nodes": [
-			"dist/nodes/PulzeMsg/PulzeMsg.node.js",
-			"dist/nodes/PulzeMsgTrigger/PulzeMsgTrigger.node.js"
-		]
-	},
-	"devDependencies": {
-		"@n8n/node-cli": "*",
-		"eslint": "9.32.0",
-		"prettier": "3.6.2",
-		"release-it": "^19.0.4",
-		"typescript": "5.9.2"
-	},
-	"peerDependencies": {
-		"n8n-workflow": "*"
-	}
+  "name": "n8n-nodes-pulze-msg",
+  "version": "0.2.1",
+  "description": "Send and receive WhatsApp messages from n8n via the Pulze API — text, media, interactive buttons, instance management and a signature-verified webhook trigger.",
+  "license": "MIT",
+  "homepage": "https://pulzeapi.botautotik.com",
+  "keywords": [
+    "n8n-community-node-package",
+    "whatsapp",
+    "pulze"
+  ],
+  "author": {
+    "name": "Elmo Almeida",
+    "email": "contato@elmodesign.com.br"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elmoalmeida/n8n-nodes-pulze-msg.git"
+  },
+  "scripts": {
+    "prebuild": "node -e \"require('fs').rmSync('node_modules/.cache/tsconfig.tsbuildinfo',{force:true})\"",
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/PulzeMsgApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/PulzeMsg/PulzeMsg.node.js",
+      "dist/nodes/PulzeMsgTrigger/PulzeMsgTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "release-it": "^19.0.4",
+    "typescript": "5.9.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
 }
