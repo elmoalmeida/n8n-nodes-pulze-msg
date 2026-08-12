@@ -64,9 +64,11 @@ You need a Pulze API instance (self-hosted) and a token from it:
      operations such as *List Instances*; or
    - an **instance token** (dashboard: instance → *Settings*), scoped to a
      single instance.
-3. **Instance (for testing the connection)** — optional. Only needed if the
-   token above is an instance token, so the credential's "Test" button knows
-   which instance to check instead of listing all of them.
+3. **Instance (for testing the connection)** — optional, and only for Pulze
+   servers older than August 2026: those answer `403` when an instance token
+   asks for the instance list, so the name typed here is used both by the
+   credential's "Test" button and as the single entry of the **Instance**
+   dropdown. On current servers you can leave it empty with either token type.
 
 Both token types authenticate the same way (`Authorization: Bearer <token>`),
 but they are not interchangeable in scope — an instance token gets a `403` on
@@ -79,9 +81,11 @@ incompatibilities.
 
 ## Usage
 
-Every operation needs an **Instance** field — the name of the Pulze instance
-(a connected WhatsApp session) that should send or be queried. Instance names
-are visible in the Pulze dashboard.
+Every operation needs an **Instance** field — the Pulze instance (a connected
+WhatsApp session) that should send or be queried. It is a dropdown filled from
+your credential: an account token lists every instance of the account, an
+instance token lists its own. To pick the instance at runtime instead, switch
+the field to an expression.
 
 If you're new to n8n, the [Try it out](https://docs.n8n.io/try-it-out/) guide
 covers the basics of building a workflow.

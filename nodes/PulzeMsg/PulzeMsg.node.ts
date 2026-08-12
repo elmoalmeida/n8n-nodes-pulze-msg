@@ -1,5 +1,6 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
 
+import { getInstances } from './loadOptions';
 import { instanceDescription } from './resources/instance';
 import { profileDescription } from './resources/profile';
 import { messageDescription } from './resources/message';
@@ -70,5 +71,11 @@ export class PulzeMsg implements INodeType {
 			...chatwootDescription,
 			...typebotDescription,
 		],
+	};
+
+	methods = {
+		loadOptions: {
+			getInstances,
+		},
 	};
 }

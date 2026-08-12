@@ -55,8 +55,8 @@ export class PulzeMsgApi implements ICredentialType {
 			default: '',
 			placeholder: 'my-instance',
 			description:
-				'Optional. Leave empty if the Token above is an account token. ' +
-				'If it is an instance token, fill in its instance name so the "Test" button can check the right endpoint.',
+				'Optional, and only for Pulze servers older than August 2026, which answer 403 when an instance token asks for the instance list. ' +
+				'The name typed here is used by the "Test" button and as the single entry of the Instance dropdown. On current servers, leave it empty with either token type.',
 		},
 	];
 
