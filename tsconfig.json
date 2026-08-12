@@ -16,6 +16,10 @@
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"incremental": true,
+		// Fora de dist/: com `files:["dist"]` no package.json o .npmignore nao
+		// consegue excluir nada de dentro de dist, e esse cache (~220 KB) ia
+		// parar no tarball publicado.
+		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo",
 		"declaration": true,
 		"sourceMap": true,
 		"skipLibCheck": true,
