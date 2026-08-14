@@ -18,7 +18,8 @@ export class PulzeMsg implements INodeType {
 		name: 'pulzeMsg',
 		icon: { light: 'file:pulzeMsg.svg', dark: 'file:pulzeMsg.dark.svg' },
 		group: ['transform'],
-		version: 1,
+		version: [1, 2],
+		defaultVersion: 2,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Send and receive WhatsApp messages via the Pulze API',
 		defaults: {

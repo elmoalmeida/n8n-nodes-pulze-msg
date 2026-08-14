@@ -87,6 +87,16 @@ your credential: an account token lists every instance of the account, an
 instance token lists its own. To pick the instance at runtime instead, switch
 the field to an expression.
 
+**Carousel cards and list options** are filled in a form: click *Add Card* (or
+*Add Option*) and fill the fields. Each card has three button slots — pick a
+type (reply, URL, call, copy) and the label and value appear. List options
+declare which group they belong to, and options sharing a heading are grouped
+together in the order you add them. Switch the field to **JSON** when the cards
+or options come from a previous node.
+
+Nodes added before v0.3.0 keep the JSON box they were built with; add a new
+node to get the form.
+
 If you're new to n8n, the [Try it out](https://docs.n8n.io/try-it-out/) guide
 covers the basics of building a workflow.
 
