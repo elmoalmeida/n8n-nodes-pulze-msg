@@ -69,8 +69,24 @@ export const messageMediaDescription: INodeProperties[] = [
           name: "ptt",
           type: "boolean",
           default: false,
-          description: "Whether to send audio as a voice message (waveform bubble) instead of a regular audio file",
+          description: "Whether to send audio as a voice message (waveform bubble) instead of a regular audio file. With OGG/Opus audio, Pulze fills in the waveform and duration automatically.",
           routing: { send: { type: "body", property: "ptt" } },
+        },
+        {
+          displayName: "Seconds",
+          name: "seconds",
+          type: "number",
+          default: 0,
+          description: "Audio only. Duration in seconds shown on the bubble. Leave empty or 0 to let Pulze read it from the OGG/Opus file.",
+          routing: { send: { type: "body", property: "seconds" } },
+        },
+        {
+          displayName: "Waveform",
+          name: "waveform",
+          type: "string",
+          default: '',
+          description: "Voice messages only. Ready-made waveform: base64 of exactly 64 bytes, each from 0 to 100. Leave empty to let Pulze compute it from the OGG/Opus file.",
+          routing: { send: { type: "body", property: "waveform" } },
         }
     ],
   }
