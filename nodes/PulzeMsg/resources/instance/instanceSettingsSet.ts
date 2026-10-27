@@ -60,6 +60,22 @@ export const instanceSettingsSetDescription: INodeProperties[] = [
           routing: { send: { type: "body", property: "rejectCalls" } },
         },
         {
+          displayName: "Skip Group Media",
+          name: "skipGroupMedia",
+          type: "boolean",
+          default: false,
+          description: "Whether to group messages still reach the webhook and history, but their media is not downloaded or stored. The webhook carries media.skipped = true instead of a URL. Unlike Ignore Groups, which drops the whole message.",
+          routing: { send: { type: "body", property: "skipGroupMedia" } },
+        },
+        {
+          displayName: "Skip Status Media",
+          name: "skipStatusMedia",
+          type: "boolean",
+          default: false,
+          description: "Whether to same as Skip Group Media, for status updates / stories",
+          routing: { send: { type: "body", property: "skipStatusMedia" } },
+        },
+        {
           displayName: "Sync History",
           name: "syncHistory",
           type: "boolean",

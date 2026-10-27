@@ -44,7 +44,7 @@ export const instanceDescription: INodeProperties[] = [
       name: "Get Behavior Settings",
       value: "instanceSettingsGet",
       action: "Get behavior settings",
-      description: "Reads the 6 behavior flags saved for this instance. An instance that was never configured returns everything as false.",
+      description: "Reads the 8 behavior flags saved for this instance. An instance that was never configured returns everything as false.",
       routing: { request: { method: "GET", url: '=/instance/settings/{{$parameter.instance}}' } },
     },
     {
@@ -93,7 +93,7 @@ export const instanceDescription: INodeProperties[] = [
       name: "Update Behavior Settings",
       value: "instanceSettingsSet",
       action: "Update behavior settings",
-      description: "Replaces the whole set of flags — this is not a merge. A flag you don't send becomes false, so always send all 6 (even repeating values already saved), never just the one you want to change.",
+      description: "Changes only the flags you send: a flag left out keeps its saved value. To turn a flag off, send it as false.",
       routing: { request: { method: "POST", url: '=/instance/settings/{{$parameter.instance}}' } },
     },
     {
