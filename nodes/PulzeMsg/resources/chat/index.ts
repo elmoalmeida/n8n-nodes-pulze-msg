@@ -7,6 +7,7 @@ import { chatMessageDeleteDescription } from './messageDelete';
 import { chatMessageEditDescription } from './messageEdit';
 import { chatMessageGetDescription } from './messageGet';
 import { chatMessagesDescription } from './chatMessages';
+import { chatAvatarDescription } from './chatAvatar';
 import { chatMessageMediaBase64Description } from './messageMediaBase64';
 import { chatBlocklistDescription } from './chatBlocklist';
 import { chatListDescription } from './chatList';
@@ -79,6 +80,13 @@ export const chatDescription: INodeProperties[] = [
       routing: { request: { method: "GET", url: '=/chat/messages/{{$parameter.instance}}' } },
     },
     {
+      name: "Get Contact Profile Picture",
+      value: "chatAvatar",
+      action: "Get contact profile picture",
+      description: "Returns the profile picture URL of ONE contact or group, fetched from WhatsApp at call time. Accepts the chat ID exactly as it arrives in the webhook, including ...@lid. An empty URL is not an error: the contact has no picture or their privacy hides it. The URL is signed and expires — download the image or fetch it again later. Fetch one contact at a time, on demand.",
+      routing: { request: { method: "GET", url: '=/chat/avatar/{{$parameter.instance}}' } },
+    },
+    {
       name: "Get Media as Base64",
       value: "messageMediaBase64",
       action: "Get media as base64",
@@ -137,6 +145,7 @@ export const chatDescription: INodeProperties[] = [
   ...chatMessageEditDescription,
   ...chatMessageGetDescription,
   ...chatMessagesDescription,
+  ...chatAvatarDescription,
   ...chatMessageMediaBase64Description,
   ...chatBlocklistDescription,
   ...chatListDescription,
